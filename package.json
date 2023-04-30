@@ -1,0 +1,12 @@
+{
+  "name": "com.rsh.graphqltoolkit",
+  "version": "1.0.0",
+  "displayName": "Graph QL Toolkit",
+  "description": "Graph QL Toolkit",
+  "unity": "2021.1",
+  "unityRelease": "0b5",
+  "author": {
+    "name": "Rasoul Shahhoseini"
+  },
+  "type": "library"
+}
