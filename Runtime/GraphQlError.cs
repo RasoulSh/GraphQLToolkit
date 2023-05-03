@@ -6,5 +6,6 @@ namespace GraphGLToolkit
     public record GraphQlError
     {
         public string message;
+        public GraphQlErrorLocation[] locations;
     }
 }
