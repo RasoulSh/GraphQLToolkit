@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace GraphGLToolkit
+namespace GraphQLToolkit
 {
     public class GraphQl
     {

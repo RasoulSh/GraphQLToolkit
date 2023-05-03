@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace GraphGLToolkit
+namespace GraphQLToolkit
 {
     public static class GraphQlUtil
     {

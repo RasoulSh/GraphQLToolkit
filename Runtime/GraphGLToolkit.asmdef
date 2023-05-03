@@ -1,6 +1,6 @@
 {
-    "name": "Graph GLToolkit",
-    "rootNamespace": "GraphGLToolkit",
+    "name": "Graph QL Toolkit",
+    "rootNamespace": "GraphQLToolkit",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

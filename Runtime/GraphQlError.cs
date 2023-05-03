@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GraphGLToolkit
+namespace GraphQLToolkit
 {
     [Serializable]
     public record GraphQlError
