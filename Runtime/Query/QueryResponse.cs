@@ -1,6 +1,7 @@
 ﻿using System;
+using GraphQLToolkit.Error;
 
-namespace GraphQLToolkit
+namespace GraphQLToolkit.Query
 {
     [Serializable]
     public record QueryResponse<T>

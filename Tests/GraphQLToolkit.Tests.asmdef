@@ -1,0 +1,16 @@
+{
+    "name": "GraphQLToolkit.Tests",
+    "rootNamespace": "",
+    "references": [
+        "GUID:602fdc13ce0746c45a988e1e577b3805"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

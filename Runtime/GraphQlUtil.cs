@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Reflection;
+using GraphQLToolkit.Query;
 
 namespace GraphQLToolkit
 {
     public static class GraphQlUtil
     {
-        public static GraphQl ToGraphQl(Type t)
+        public static GraphQlQuery ToGraphQl(Type t)
         {
-            var graphQl = new GraphQl();
+            var graphQl = new GraphQlQuery();
             var fields = t.GetFields();
             foreach (var field in fields)
             {
@@ -18,7 +19,7 @@ namespace GraphQLToolkit
             return graphQl;
         }
 
-        private static void ToGraphQl(FieldInfo field, GraphQl parent)
+        private static void ToGraphQl(FieldInfo field, GraphQlQuery parent)
         {
             var fieldType = field.FieldType;
             FieldInfo[] childFields = Array.Empty<FieldInfo>();

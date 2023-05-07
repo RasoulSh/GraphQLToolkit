@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GraphQLToolkit
+namespace GraphQLToolkit.Error
 {
     [Serializable]
     public record GraphQlErrorLocation
