@@ -33,7 +33,9 @@ namespace GraphQLToolkit.Mutation
                 if (i < argumentsCount - 1)
                     argumentsStr += ", ";
             }
-            var methodStr = $"{mutationMethodName}({argumentsStr})";
+            if (argumentsCount > 0)
+                argumentsStr = "(" + argumentsStr + ")";
+            var methodStr = $"{mutationMethodName}{argumentsStr}";
             var mutationStr = $"{doubleQuotation}mutation {mutationName} {curlyBracketStart} {methodStr} {responseQueryStr}{curlyBracketEnd}{doubleQuotation}";
             return $"{curlyBracketStart}{queryStr}: {mutationStr}{curlyBracketEnd}";
         }
