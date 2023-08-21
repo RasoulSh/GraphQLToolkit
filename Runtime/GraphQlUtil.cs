@@ -18,6 +18,18 @@ namespace GraphQLToolkit
             }
             return graphQl;
         }
+        
+        public static GraphQlQuery ToGraphQl(Type t, GraphQlQuery parent)
+        {
+            var fields = t.GetFields();
+            foreach (var field in fields)
+            {
+                if (field.IsStatic || field.IsInitOnly)
+                    continue;
+                ToGraphQl(field, parent);
+            }
+            return parent;
+        }
 
         private static void ToGraphQl(FieldInfo field, GraphQlQuery parent)
         {
