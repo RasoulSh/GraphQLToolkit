@@ -26,6 +26,7 @@ namespace GraphQLToolkit.Query
         private static string GetQueryString(GraphQlQuery graphQlQuery)
         {
             var queryString = "";
+            
             if (graphQlQuery.parent != null)
             {
                 var argumentsStr = "";
@@ -38,7 +39,7 @@ namespace GraphQLToolkit.Query
                 }
                 if (argumentsCount > 0)
                     argumentsStr = "(" + argumentsStr + ")";
-                queryString += $"{graphQlQuery.query}{argumentsStr}";
+                queryString += $"{graphQlQuery.query}{argumentsStr} ";
             }
             if (graphQlQuery.children.Any())
             {
