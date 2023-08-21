@@ -29,7 +29,7 @@ namespace GraphQLToolkit.Query
             if (graphQlQuery.parent != null)
             {
                 var argumentsStr = "";
-                var argumentsCount = graphQlQuery.queryArguments.Length;
+                var argumentsCount = graphQlQuery.queryArguments?.Length ?? 0;
                 for(int i = 0; i < argumentsCount; i++)
                 {
                     argumentsStr += graphQlQuery.queryArguments[i].ToString();
