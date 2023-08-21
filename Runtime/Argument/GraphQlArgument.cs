@@ -1,11 +1,11 @@
-﻿namespace GraphQLToolkit.Mutation
+﻿namespace GraphQLToolkit.Argument
 {
-    public class GraphQlMutationArgument
+    public class GraphQlArgument
     {
         public string Name { get; set; }
         public object Value { get; set; }
 
-        public GraphQlMutationArgument(string name, object value)
+        public GraphQlArgument(string name, object value)
         {
             Name = name;
             Value = value;

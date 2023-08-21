@@ -1,4 +1,5 @@
-﻿using GraphQLToolkit.Query;
+﻿using GraphQLToolkit.Argument;
+using GraphQLToolkit.Query;
 
 namespace GraphQLToolkit.Mutation
 {
@@ -6,11 +7,11 @@ namespace GraphQLToolkit.Mutation
     {
         private readonly string mutationName;
         private readonly string mutationMethodName;
-        private readonly GraphQlMutationArgument[] mutationArguments;
+        private readonly GraphQlArgument[] mutationArguments;
         private GraphQlQuery responseQuery;
 
         public GraphQlMutation(string name, string methodName,
-            GraphQlMutationArgument[] arguments, GraphQlQuery responseQuery)
+            GraphQlArgument[] arguments, GraphQlQuery responseQuery)
         {
             mutationName = name;
             mutationMethodName = methodName;

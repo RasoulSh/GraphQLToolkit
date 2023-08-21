@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using GraphQLToolkit.Argument;
 
 namespace GraphQLToolkit.Query
 {
@@ -8,6 +10,8 @@ namespace GraphQLToolkit.Query
         private string query;
         private readonly GraphQlQuery parent;
         private List<GraphQlQuery> children;
+        private readonly GraphQlArgument[] queryArguments;
+
 
         public override string ToString()
         {
@@ -24,7 +28,17 @@ namespace GraphQLToolkit.Query
             var queryString = "";
             if (graphQlQuery.parent != null)
             {
-                queryString += graphQlQuery.query + " ";
+                var argumentsStr = "";
+                var argumentsCount = graphQlQuery.queryArguments.Length;
+                for(int i = 0; i < argumentsCount; i++)
+                {
+                    argumentsStr += graphQlQuery.queryArguments[i].ToString();
+                    if (i < argumentsCount - 1)
+                        argumentsStr += ", ";
+                }
+                if (argumentsCount > 0)
+                    argumentsStr = "(" + argumentsStr + ")";
+                queryString += $"{graphQlQuery.query}{argumentsStr}";
             }
             if (graphQlQuery.children.Any())
             {
@@ -45,15 +59,16 @@ namespace GraphQLToolkit.Query
             children = new List<GraphQlQuery>();
         }
 
-        private GraphQlQuery(GraphQlQuery parent, string query) : this()
+        private GraphQlQuery(GraphQlQuery parent, string query, GraphQlArgument[] arguments) : this()
         {
             this.query = query;
             this.parent = parent;
+            queryArguments = arguments;
         }
 
-        public GraphQlQuery Add(string query)
+        public GraphQlQuery Add(string query, GraphQlArgument[] arguments = null)
         {
-            var newChild = new GraphQlQuery(this, query);
+            var newChild = new GraphQlQuery(this, query, arguments);
             children.Add(newChild);
             return newChild;
         }

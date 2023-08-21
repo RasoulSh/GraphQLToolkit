@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using GraphQLToolkit.Argument;
 using GraphQLToolkit.Mutation;
 using GraphQLToolkit.Query;
 using UnityEngine;
@@ -26,7 +27,7 @@ namespace Tests
         {
             var responseQuery = new GraphQlQuery();
             responseQuery.Add("user").Add("team_name");
-            var arguments = new GraphQlMutationArgument[]
+            var arguments = new GraphQlArgument[]
             {
                 new("id", userId),
                 new("team_name", newTeamName)
