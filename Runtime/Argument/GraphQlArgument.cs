@@ -21,6 +21,8 @@
             var valueType = Value.GetType();
             if (valueType == typeof(string))
                 return $"\\\"{Value}\\\"";
+            if (valueType == typeof(bool))
+                return Value.ToString().ToLower();
             return Value.ToString();
         }
     }
