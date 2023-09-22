@@ -1,4 +1,7 @@
-﻿namespace GraphQLToolkit.Argument
+﻿using System;
+using Newtonsoft.Json;
+
+namespace GraphQLToolkit.Argument
 {
     public class GraphQlArgument
     {
@@ -19,11 +22,30 @@
         private string GetValueString()
         {
             var valueType = Value.GetType();
+            if (valueType.BaseType == typeof(Array))
+            {
+                var arr = Value as object[];
+                var arrValueStr = "[";
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    if (i > 0)
+                        arrValueStr += ", ";
+                    arrValueStr += GetSingleValueString(arr[i]);
+                }
+                arrValueStr += "]";
+                return arrValueStr;
+            }
+            return GetSingleValueString(Value);
+        }
+        
+        private static string GetSingleValueString(object value)
+        {
+            var valueType = value.GetType();
             if (valueType == typeof(string))
-                return $"\\\"{Value}\\\"";
+                return $"\\\"{value}\\\"";
             if (valueType == typeof(bool))
-                return Value.ToString().ToLower();
-            return Value.ToString();
+                return value.ToString().ToLower();
+            return value.ToString();
         }
     }
 }
