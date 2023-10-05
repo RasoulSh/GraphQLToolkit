@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Newtonsoft.Json;
 
 namespace GraphQLToolkit.Argument
@@ -24,7 +25,7 @@ namespace GraphQLToolkit.Argument
             var valueType = Value.GetType();
             if (valueType.BaseType == typeof(Array))
             {
-                var arr = Value as object[];
+                var arr = (Value as Array).Cast<object>().ToArray();
                 var arrValueStr = "[";
                 for (int i = 0; i < arr.Length; i++)
                 {
